@@ -11,7 +11,7 @@ export const siteConfig = {
   cta: 'How Does It Work?',
   pdf: 'https://assets.lighter.xyz/whitepaper.pdf',
   pdfDownloadName: 'lighter-whitepaper.pdf',
-  heroImage: '/lighter-banner.jpeg',
+  // Branded banner artwork supplied for the Lighter treatment; remote fallback keeps the page deployable.
+  heroImage: 'https://cdn.prod.website-files.com/6267eac265e445963ae53e81/68e3cbc06a67a90e762bde02_lighter.jpg',
   heroAlt: 'Lighter branded visual',
-  logoImage: '/lighter-logo.jpeg',
 };
