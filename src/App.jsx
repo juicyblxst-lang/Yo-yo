@@ -24,6 +24,15 @@ function DocumentLink({ className = '' }) {
   );
 }
 
+function LighterMark() {
+  return (
+    <span className="lighter-mark" aria-hidden="true">
+      <span className="lighter-mark-tall" />
+      <span className="lighter-mark-short" />
+    </span>
+  );
+}
+
 function App() {
   return (
     <div className="page-shell">
@@ -35,7 +44,7 @@ function App() {
         </button>
 
         <div className="brand-lockup" aria-label={siteConfig.brand}>
-          <img className="brand-logo" src={siteConfig.logoImage} alt="Lighter" />
+          <LighterMark />
           <span>{siteConfig.headerLabel}</span>
         </div>
 
