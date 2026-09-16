@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { siteConfig } from './site.config';
 
-function DocumentLink({ className = '' }) {
+function DownloadLink({ className = '' }) {
   const [started, setStarted] = useState(false);
 
   const handleClick = () => {
@@ -11,14 +11,13 @@ function DocumentLink({ className = '' }) {
 
   return (
     <a
-      className={`document-link ${className}`}
+      className={`download-link ${className}`}
       href={siteConfig.pdf}
-      target="_blank"
-      rel="noreferrer"
+      download={siteConfig.pdfDownloadName}
       onClick={handleClick}
-      aria-label={`${siteConfig.cta} — open Lighter whitepaper`}
+      aria-label={`${siteConfig.cta} — download PDF`}
     >
-      <span>{started ? 'Opening…' : siteConfig.cta}</span>
+      <span>{started ? 'Downloading…' : siteConfig.cta}</span>
       <span className="arrow" aria-hidden="true">→</span>
     </a>
   );
@@ -35,7 +34,11 @@ function App() {
         </button>
 
         <div className="brand-lockup" aria-label={siteConfig.brand}>
-          <img className="brand-logo" src={siteConfig.logoImage} alt="Lighter" />
+          <img
+            className="brand-mark"
+            src={siteConfig.logoImage}
+            alt=""
+          />
           <span>{siteConfig.headerLabel}</span>
         </div>
 
@@ -46,6 +49,7 @@ function App() {
 
       <section className="hero" aria-label={`${siteConfig.brand} artwork`}>
         <img src={siteConfig.heroImage} alt={siteConfig.heroAlt} />
+        <div className="hero-overlay" />
       </section>
 
       <main className="content">
@@ -54,10 +58,10 @@ function App() {
           <h1>{siteConfig.title}</h1>
           <p className="description">{siteConfig.description}</p>
 
-          <DocumentLink className="inline-cta" />
+          <DownloadLink className="inline-cta" />
         </div>
 
-        <DocumentLink className="bottom-cta" />
+        <DownloadLink className="bottom-cta" />
       </main>
     </div>
   );
